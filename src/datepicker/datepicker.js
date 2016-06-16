@@ -73,10 +73,14 @@ angular.module('mgcrea.ngStrap.datepicker', [
         // Scope methods
 
         scope.$select = function (date) {
-          $datepicker.select(date);
+            $timeout(function () {
+                $datepicker.select(date);
+            });
         };
         scope.$selectPane = function (value) {
-          $datepicker.$selectPane(value);
+            $timeout(function () {
+                $datepicker.$selectPane(value);
+            });
         };
         scope.$toggleMode = function () {
           $datepicker.setMode((scope.$mode + 1) % $datepicker.$views.length);
